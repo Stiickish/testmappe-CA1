@@ -19,7 +19,7 @@ public class HobbyFacadeTest {
     private static EntityManagerFactory emf;
     private static HobbyFacade facade;
 
-    Hobby h1, h2;
+   private static Hobby h1, h2;
 
     public HobbyFacadeTest() {
     }
@@ -47,7 +47,7 @@ public class HobbyFacadeTest {
         try {
             em.getTransaction().begin();
             em.createNamedQuery("Hobby.deleteAllRows").executeUpdate();
-            em.createNativeQuery("ALTER TABLE Hobby AUTO_INCREMENT = 1").executeUpdate();
+//            em.createNativeQuery("ALTER TABLE Hobby AUTO_INCREMENT = 1").executeUpdate();
             em.persist(h1);
             em.persist(h2);
             em.getTransaction().commit();

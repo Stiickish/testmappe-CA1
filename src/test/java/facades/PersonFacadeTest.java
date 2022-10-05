@@ -31,11 +31,10 @@ public class PersonFacadeTest {
     public PersonFacadeTest() {
     }
 
-    public static void deleteData()
-    {
+    public static void deleteData() {
         EntityManager em = emf.createEntityManager();
 
-        try{
+        try {
             em.getTransaction().begin();
             em.createQuery("DELETE From Phone").executeUpdate();
             em.createNativeQuery("ALTER TABLE Phone AUTO_INCREMENT = 1").executeUpdate();
@@ -51,8 +50,7 @@ public class PersonFacadeTest {
             em.createNamedQuery("Address.deleteAllRows").executeUpdate();
             em.createNamedQuery("CityInfo.deleteAllRows").executeUpdate();
             em.getTransaction().commit();
-        }
-        finally {
+        } finally {
             em.close();
         }
     }
@@ -65,7 +63,7 @@ public class PersonFacadeTest {
 
     @AfterAll
     public static void tearDownClass() {
-
+        deleteData();
 //        Clean up database after test is done or use a persistence unit with drop-and-create to start up clean on every test
     }
 
@@ -75,23 +73,23 @@ public class PersonFacadeTest {
     public void setUp() {
         EntityManager em = emf.createEntityManager();
 
-            c1 = new CityInfo("2300","Amager");
-            c2 = new CityInfo("2400","Nordvest");
-            c3 = new CityInfo("2100","Østerbro");
+        c1 = new CityInfo("2300", "Amager");
+        c2 = new CityInfo("2400", "Nordvest");
+        c3 = new CityInfo("2100", "Østerbro");
 
-            a1 = new Address("Amagerbrogade 12","3. TV",c1);
-            a2 = new Address("Stærevej 6","1.TH",c2);
-            a3 = new Address("Østerbrogade 271","ST, MF",c3);
+        a1 = new Address("Amagerbrogade 12", "3. TV", c1);
+        a2 = new Address("Stærevej 6", "1.TH", c2);
+        a3 = new Address("Østerbrogade 271", "ST, MF", c3);
 
-            h1 = new Hobby("Gaming", "something");
-            h2 = new Hobby("Strikning", "something");
+        h1 = new Hobby("Gaming", "something");
+        h2 = new Hobby("Strikning", "something");
 
-            phone1 = new Phone(1232312, "mobile");
-            phone2 = new Phone(234234242, "home");
+        phone1 = new Phone(1232312, "mobile");
+        phone2 = new Phone(234234242, "home");
 
-            p1 = new Person("Morten@B.dk", "Morten", "Bendeke",a1);
-            p2 = new Person("Denis@P.dk", "Denis", "Pedersen",a2);
-            p3 = new Person("Betül@I.dk", "Betül", "Iskender", a3);
+        p1 = new Person("Morten@B.dk", "Morten", "Bendeke", a1);
+        p2 = new Person("Denis@P.dk", "Denis", "Pedersen", a2);
+        p3 = new Person("Betül@I.dk", "Betül", "Iskender", a3);
 
         try {
             em.getTransaction().begin();
@@ -122,7 +120,7 @@ public class PersonFacadeTest {
 //        Remove any data after each test was run
     }
 
-   @Test
+    @Test
     public void getById() {
         PersonDto expected = new PersonDto(p1);
         PersonDto actual = facade.getById(p1.getId());
@@ -132,7 +130,7 @@ public class PersonFacadeTest {
 
     @Test
     public void create() {
-        Person newPerson = new Person("stiickish@yelong.dk", "Yelong","Hartl-He", a1);
+        Person newPerson = new Person("stiickish@yelong.dk", "Yelong", "Hartl-He", a1);
         newPerson.getHobbies().add(h1);
         PersonDto personDto = new PersonDto(newPerson);
         PersonDto actual = facade.create(personDto);
@@ -157,11 +155,11 @@ public class PersonFacadeTest {
         assertEquals(2, updatedPerson.getPhones().size());
     }
 
-   @Test
+    @Test
     public void getAllPersons() throws Exception {
         List<PersonDto> personDtoList = facade.getAll();
         int expected = 3;
-        assertEquals(expected,personDtoList.size() );
+        assertEquals(expected, personDtoList.size());
     }
 
     @Test
@@ -169,10 +167,10 @@ public class PersonFacadeTest {
         facade.delete(p1.getId());
         int expected = 2;
         int actual = facade.getAll().size();
-        assertEquals(expected,actual);
+        assertEquals(expected, actual);
     }
 
-    }
+}
 
 
 
