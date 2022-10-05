@@ -41,13 +41,13 @@ public class HobbyFacadeTest {
     public void setUp() {
         EntityManager em = emf.createEntityManager();
 
-            h1 = new Hobby("Strikning", "Kun gamle damer strikker");
-            h2 = new Hobby("Gaming", "Spil WOW med Morten");
+        h1 = new Hobby("Strikning", "Kun gamle damer strikker");
+        h2 = new Hobby("Gaming", "Spil WOW med Morten");
 
         try {
             em.getTransaction().begin();
             em.createNamedQuery("Hobby.deleteAllRows").executeUpdate();
-//            em.createNativeQuery("ALTER TABLE Hobby AUTO_INCREMENT = 1").executeUpdate();
+            em.createNativeQuery("ALTER TABLE Hobby AUTO_INCREMENT = 1").executeUpdate();
             em.persist(h1);
             em.persist(h2);
             em.getTransaction().commit();
@@ -69,7 +69,7 @@ public class HobbyFacadeTest {
     }
 
     @Test
-    void getAll(){
+    void getAll() {
         int expected = 2;
         List<HobbyDto> hobbyList = facade.getAll();
         assertEquals(expected, hobbyList.size());
@@ -92,7 +92,7 @@ public class HobbyFacadeTest {
     }
 
     @Test
-    void delete(){
+    void delete() {
         facade.delete(h1.getId());
         int expected = 1;
         int actual = facade.getAll().size();
