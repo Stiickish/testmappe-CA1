@@ -51,6 +51,7 @@ public class AddressResource {
         AddressDto a = GSON.fromJson(content, AddressDto.class);
         a.setId(id);
         AddressDto updated = FACADE.update(a);
+        System.out.println("Test");
         return Response.ok().entity(GSON.toJson(updated)).build();
     }
 
