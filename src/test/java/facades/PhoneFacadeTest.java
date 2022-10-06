@@ -126,7 +126,7 @@ public class PhoneFacadeTest
 
     @Test
     void create() {
-        Phone phone = new Phone(12233445, "Work", person1);
+        Phone phone = new Phone(12233445, "arbejde", person1);
         PhoneDto phoneDto = new PhoneDto(phone);
         PhoneDto actual = facade.create(phoneDto);
         System.out.println(actual);
