@@ -3,16 +3,13 @@ package rest;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import dtos.AddressDto;
-import dtos.PhoneDto;
 import facades.AddressFacade;
-import facades.PhoneFacade;
 import utils.EMF_Creator;
 
 import javax.persistence.EntityManagerFactory;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.awt.*;
 
 @Path("address")
 public class AddressResource {
