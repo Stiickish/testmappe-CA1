@@ -22,7 +22,7 @@ public class AddressFacadeTest {
     public AddressFacadeTest() {
     }
 
-    public static void deleteData() {
+   /* public static void deleteData() {
         EntityManager em = emf.createEntityManager();
 
         try {
@@ -40,7 +40,7 @@ public class AddressFacadeTest {
         } finally {
             em.close();
         }
-    }
+    }*/
 
     @BeforeAll
     public static void setUpClass() {
@@ -52,7 +52,7 @@ public class AddressFacadeTest {
     @AfterAll
     public static void tearDownClass() {
 //        Clean up database after test is done or use a persistence unit with drop-and-create to start up clean on every test
-        deleteData();
+
     }
 
     // Setup the DataBase in a known state BEFORE EACH TEST

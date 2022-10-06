@@ -1,3 +1,4 @@
+/*
 package rest;
 
 import com.google.gson.Gson;
@@ -141,7 +142,8 @@ public class PersonResourceTest {
     }
 
 
- /*   @Test
+ */
+/*   @Test
     public void testGetById()  {
         System.out.println(p1);
         System.out.println(a1);
@@ -154,7 +156,8 @@ public class PersonResourceTest {
                 .assertThat()
                 .statusCode(HttpStatus.OK_200.getStatusCode())
                 .body("id", equalTo(p1.getId()));
-    }*/
+    }*//*
+
     @Test
     public void create() {
         Person p = new Person("myemail@email.com", "Jörg","Hilfbrand", a1);
@@ -194,3 +197,4 @@ public class PersonResourceTest {
                 .body("firstName", equalTo("Arne"));
     }
 }
+*/

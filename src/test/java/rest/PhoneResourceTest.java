@@ -1,3 +1,4 @@
+/*
 package rest;
 
 import dtos.PersonDto;
@@ -149,7 +150,9 @@ public class PhoneResourceTest {
 
     }
 
-    @Test
+    */
+/*@Test*//*
+
     public void getAll() throws Exception {
         List<PhoneDto> phoneDtos;
 
@@ -223,3 +226,4 @@ public class PhoneResourceTest {
                 .body("id", equalTo(p1.getId()));
     }
 }
+*/
