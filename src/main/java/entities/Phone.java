@@ -1,8 +1,7 @@
 package entities;
 
-import dtos.PersonDto;
 import dtos.PhoneDto;
-import jdk.jfr.Name;
+
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
