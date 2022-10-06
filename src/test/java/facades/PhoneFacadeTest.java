@@ -25,7 +25,7 @@ public class PhoneFacadeTest
     public PhoneFacadeTest() {
     }
 
-    public static void deleteData()
+   /* public static void deleteData()
     {
         EntityManager em = emf.createEntityManager();
 
@@ -49,7 +49,7 @@ public class PhoneFacadeTest
         finally {
             em.close();
         }
-    }
+    }*/
 
     @BeforeAll
     public static void setUpClass() {

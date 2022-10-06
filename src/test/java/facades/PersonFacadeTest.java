@@ -31,7 +31,7 @@ public class PersonFacadeTest {
     public PersonFacadeTest() {
     }
 
-    public static void deleteData() {
+    /*public static void deleteData() {
         EntityManager em = emf.createEntityManager();
 
         try {
@@ -53,7 +53,7 @@ public class PersonFacadeTest {
         } finally {
             em.close();
         }
-    }
+    }*/
 
     @BeforeAll
     public static void setUpClass() {
@@ -63,7 +63,6 @@ public class PersonFacadeTest {
 
     @AfterAll
     public static void tearDownClass() {
-        deleteData();
 //        Clean up database after test is done or use a persistence unit with drop-and-create to start up clean on every test
     }
 
